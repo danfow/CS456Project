@@ -46,6 +46,11 @@ public class basicEnemyMovement : MonoBehaviour
             }
         }
 
+        if (transform.position.z < -40)
+        {
+            Destroy(gameObject); //object clean up
+        }
+
     }
 
     Transform[] SetRandomPath()

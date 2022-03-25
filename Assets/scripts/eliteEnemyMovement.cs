@@ -8,8 +8,11 @@ public class eliteEnemyMovement : MonoBehaviour
     private float speed = 30.0f;
     private float diveLimitZAxis;
     private float waitTime = 6.0f;
+    private float laserwWeightTime = 10f;
     private Vector3 pointA;
     private Vector3 pointB;
+
+    public GameObject enemyLaser;
 
     public List<GameObject> movementPaths = new List<GameObject>();
     public Transform[] moveSpots;
@@ -30,6 +33,7 @@ public class eliteEnemyMovement : MonoBehaviour
         this.transform.position = moveSpots[1].transform.position;
 
         diveLimitZAxis = player.position.z + 2;
+        InvokeRepeating("shootLaser", Random.Range(2, 4), Random.Range(1,4));
     }
 
     // Update is called once per frame
@@ -44,12 +48,19 @@ public class eliteEnemyMovement : MonoBehaviour
             if (waitTime <= 0)
             {
                 Dive();
+
             }
             else
             {
                 PingPongMovement();
                 waitTime -= Time.deltaTime;
+                
             }
+        }
+
+        if (transform.position.z < -40)
+        {
+            Destroy(gameObject); //object clean up
         }
 
     }
@@ -90,4 +101,11 @@ public class eliteEnemyMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
     }
+
+    void shootLaser()
+    {
+        Instantiate(enemyLaser, transform.position, enemyLaser.transform.rotation);
+    }
+
+    
 }
