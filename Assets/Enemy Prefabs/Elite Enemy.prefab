@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4486744852345448345}
   m_Layer: 0
   m_Name: Elite Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  enemyLaser: {fileID: 6900833929774145288, guid: c1beb3b23bd3a4145bbf63d282a2875b, type: 3}
   movementPaths: []
-  pingPong: []
   moveSpots: []
