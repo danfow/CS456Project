@@ -8,9 +8,12 @@ public class playerController : MonoBehaviour
     public float horizontalInput;
     private Rigidbody playerRb;
     public GameObject playerLaser;
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerRb = GetComponent<Rigidbody>();
         
     }
@@ -40,6 +43,8 @@ public class playerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("You got hit by an enemy ship. You lose!");
+            Destroy(this.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
