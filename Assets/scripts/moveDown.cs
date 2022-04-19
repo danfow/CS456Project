@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class moveDown : MonoBehaviour
 {
+    private GameManager gameManager;
     public AudioClip audioClip;
+
     // Start is called before the first frame update
     public float laserSpeed = 5f;
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         AudioSource.PlayClipAtPoint(audioClip, transform.position); 
     }
 
@@ -23,11 +27,13 @@ public class moveDown : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("You got hit by a laser! you lose!");
+            Destroy(this.gameObject);
+            gameManager.UpdateLives(-1);
         }
     }
 }

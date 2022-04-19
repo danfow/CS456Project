@@ -6,6 +6,7 @@ TagManager:
   tags:
   - floorLaser
   - Enemy
+  - Laser1
   layers:
   - Default
   - TransparentFX

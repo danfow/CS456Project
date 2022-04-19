@@ -6,14 +6,17 @@ public class enemySpawnManager : MonoBehaviour
 {
     public GameObject basicEnemy;
     public GameObject eliteEnemy;
+    public GameObject[] enemies;
     public int randomEnemy;
     public float spawnInterval;
     private float waitTime;
+    private GameManager gameManager;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         waitTime = spawnInterval;
         SpawnRandomEnemy();
     }
@@ -21,13 +24,25 @@ public class enemySpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(waitTime <= 0){
-            SpawnRandomEnemy();
-            waitTime = spawnInterval;
+        if(gameManager.status == false)
+        {
+            if (waitTime <= 0)
+            {
+                SpawnRandomEnemy();
+                waitTime = spawnInterval;
+            }
+            else
+            {
+                waitTime -= Time.deltaTime;
+            }
         }
         else
         {
-            waitTime -= Time.deltaTime;
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemies in enemies)
+            {
+                Destroy(enemies);
+            }
         }
         
     }
