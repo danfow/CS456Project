@@ -21,9 +21,13 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Space))
+       if (Input.GetKeyDown(KeyCode.Space) && gameManager.status == false)
         {
             Instantiate(playerLaser, transform.position, playerLaser.transform.rotation);
+        }
+       if (gameManager.status == true)
+        {
+            speed = 0.0f;
         }
         
     }
@@ -43,8 +47,9 @@ public class playerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("You got hit by an enemy ship. You lose!");
-            Destroy(this.gameObject);
             Destroy(collision.gameObject);
+            gameManager.UpdateLives(-1);
+
         }
     }
 }

@@ -27,13 +27,13 @@ public class moveDown : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("You got hit by a laser! you lose!");
             Destroy(this.gameObject);
-            Destroy(collision.gameObject);
+            gameManager.UpdateLives(-1);
         }
     }
 }

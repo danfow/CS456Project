@@ -592,7 +592,7 @@ BoxCollider:
   m_GameObject: {fileID: 683855887}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -781,6 +781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicEnemy: {fileID: 1551093738851646360, guid: ca50c6e681c7a18478bee900e450b01f, type: 3}
   eliteEnemy: {fileID: 1514065700017675072, guid: 016c4751e06d59a40902455a9709f46c, type: 3}
+  enemies: []
   randomEnemy: 0
   spawnInterval: 7
 --- !u!4 &883894013
@@ -924,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae42c8f78c60684aab6be6c18bd7a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 1
+  Type: 3
   colorblindShader: {fileID: 4800000, guid: b35b8f7ae8cf168488129d5f5f39ebf4, type: 3}
 --- !u!82 &963194230
 AudioSource:
@@ -1315,8 +1316,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: blue lazer
       objectReference: {fileID: 0}
+    - target: {fileID: 6900833929774145288, guid: c1beb3b23bd3a4145bbf63d282a2875b, type: 3}
+      propertyPath: m_TagString
+      value: floorLaser
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1beb3b23bd3a4145bbf63d282a2875b, type: 3}
+--- !u!114 &1467565842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1467565842, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
+  m_PrefabInstance: {fileID: 3399991233689418954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1808247750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,6 +1416,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1467565842, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467565842, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467565844, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467565844, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467565844, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -514
+      objectReference: {fileID: 0}
     - target: {fileID: 196508013748189815, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1484,17 +1520,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1820644284339458967, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
-      propertyPath: m_text
-      value: 'Lives:'
-      objectReference: {fileID: 0}
     - target: {fileID: 8774578451635057555, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 9054015199903968577, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
-      propertyPath: m_text
-      value: 'Score:'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5acca1c49621a7c468f2185e02f4a25e, type: 3}
@@ -1549,6 +1577,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2721933893806827148, guid: 29c2f7770c8d2324a916602e6c0e6a62, type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 1467565842}
     - target: {fileID: 2721933893806827148, guid: 29c2f7770c8d2324a916602e6c0e6a62, type: 3}
       propertyPath: lifeText
       value: 
