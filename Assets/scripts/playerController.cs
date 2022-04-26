@@ -15,7 +15,6 @@ public class playerController : MonoBehaviour
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerRb = GetComponent<Rigidbody>();
-        
     }
 
     // Update is called once per frame
@@ -35,21 +34,16 @@ public class playerController : MonoBehaviour
     private void FixedUpdate()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-
-        //playerRb.MovePosition( transform.position + Vector3.right * speed * horizontalInput);
         Vector3 moveSide = (horizontalInput * transform.right);
         playerRb.AddForce((moveSide * speed) - playerRb.velocity, ForceMode.VelocityChange);
-
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("You got hit by an enemy ship. You lose!");
             Destroy(collision.gameObject);
             gameManager.UpdateLives(-1);
-
         }
     }
 }
