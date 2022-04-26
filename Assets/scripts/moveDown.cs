@@ -31,7 +31,6 @@ public class moveDown : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("You got hit by a laser! you lose!");
             Destroy(this.gameObject);
             gameManager.UpdateLives(-1);
         }
